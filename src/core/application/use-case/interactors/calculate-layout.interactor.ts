@@ -6,7 +6,7 @@ import { inject, injectable } from "inversify";
 import { MODULE } from "@core/app.symbols";
 
 @injectable()
-export class CalculateLayout implements CalculateLayoutInPort {
+export class CalculateLayoutUseCase implements CalculateLayoutInPort {
   constructor(
     @inject(MODULE.DAPP_REPOSITORY_IMPL)
     private readonly layoutRepository: ILayoutRepository

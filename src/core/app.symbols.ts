@@ -1,8 +1,5 @@
 export const APPLICATION = {
   CREATE_DAPP_USECASE: Symbol.for("CreateDappUseCase"),
-  CHECK_EXIST_POSITION_DAPP_USECASE: Symbol.for(
-    "CheckExistPositionDappUseCase"
-  ),
   UPDATE_DAPP_USECASE: Symbol.for("UpdateDappUseCase"),
   MOVE_DAPP_USECASE: Symbol.for("MoveDappUseCase"),
 };

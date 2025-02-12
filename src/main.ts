@@ -33,15 +33,6 @@ async function bootstrap(): Promise<void> {
       type: 1,
       position: new DappPosition({ width: 1, height: 1, x: 1, y: 0 }),
     });
-    const checkExist = dappController.checkExistDapp(
-      new DappPosition({
-        width: 2,
-        height: 2,
-        x: 0,
-        y: 0,
-      })
-    );
-    logger.debug("checkExist", checkExist);
     dappController.updateDapp({
       id: 1,
       data: {
