@@ -2,6 +2,7 @@ import { BaseContainer } from "@core/infrastructure/di";
 import { InfrastructureModule } from "@core/infrastructure/infrastructure.module";
 import { DappModule } from "./modules/dapp/application/dapp.module";
 import { LayoutModule } from "./modules/layout/application/layout.module";
+import { FetchDataModule } from "./modules/fetch-data/fetch-data.module";
 
 export class AppContainer extends BaseContainer {
   public init(): void {
@@ -15,5 +16,6 @@ export class AppContainer extends BaseContainer {
   private initializeModules(): void {
     this.load(new DappModule());
     this.load(new LayoutModule());
+    this.load(new FetchDataModule());
   }
 }

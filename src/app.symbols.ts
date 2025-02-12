@@ -14,3 +14,7 @@ export const LAYOUT_MODULE = {
   CALCULATE_LAYOUT_USECASE: Symbol.for("CalculateLayoutUseCase"),
   GET_LAYOUT_USECASE: Symbol.for("GetLayoutUseCase"),
 };
+export const FETCH_DATA_MODULE = {
+  FETCH_DATA_SERVICE: Symbol.for("FetchDataService"),
+  FETCH_DATA_CONTROLLER: Symbol.for("FetchDataController"),
+};
