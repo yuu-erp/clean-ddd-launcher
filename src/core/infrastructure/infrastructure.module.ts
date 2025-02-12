@@ -1,4 +1,4 @@
-import { INFRASTRUCTURE } from "@core/app.symbols";
+import { INFRASTRUCTURE } from "src/app.symbols";
 import { interfaces } from "inversify";
 import { BaseModule } from "./di";
 import { InMemoryStorageAdapter, StoragePort } from "./storage";
