@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@core": ["./src/core"],
+      "@core/*": ["./src/core/*"],
+      "@core/application": ["./src/core/application"],
+      "@core/application/*": ["./src/core/application/*"],
+      "@core/domain": ["./src/core/domain"],
+      "@core/domain/*": ["./src/core/domain/*"],
+      "@core/helpers": ["./src/core/helpers"],
+      "@core/helpers/*": ["./src/core/helpers/*"],
+      "@core/infrastructure": ["./src/core/infrastructure"],
+      "@core/infrastructure/*": ["./src/core/infrastructure/*"],
+      "@core/exceptions": ["./src/core/exceptions"],
+      "@core/exceptions/*": ["./src/core/exceptions/*"]
+    }
+  },
+  "include": ["src"]
+}
