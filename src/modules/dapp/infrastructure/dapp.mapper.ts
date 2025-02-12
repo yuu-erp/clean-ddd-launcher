@@ -30,7 +30,7 @@ export class DappMapper
     return dApplicationEntity;
   }
 
-  toPersistence(entity: DappEntity) {
+  toResponse(entity: DappEntity) {
     const props = entity.getProps();
     return {
       id: props.id,
@@ -43,7 +43,7 @@ export class DappMapper
     };
   }
 
-  toResponse(entity: DappEntity) {
-    return this.toPersistence(entity);
+  toPersistence(entity: DappEntity): DappRecord {
+    return this.toResponse(entity);
   }
 }

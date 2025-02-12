@@ -34,7 +34,7 @@ export class DappRepositoryImpl implements IDappRepository {
   }
   insertMany(entities: DappEntity[]): DappEntity[] {
     const records: DappResponse[] = this.storage.get(this.key) || [];
-    const newRecords = entities.map(this.mapper.toPersistence);
+    const newRecords = entities.map(this.mapper.toResponse);
     this.storage.set(this.key, [...records, ...newRecords]); // Gộp danh sách cũ + mới
     return entities;
   }

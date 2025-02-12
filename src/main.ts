@@ -1,9 +1,10 @@
 import { Logger } from "@core/infrastructure/logger";
 import { AppContainer } from "./app-container";
 import { DappController } from "./modules/dapp/application/controllers/dapp.controller";
-import { DAPP_MODULE, INFRASTRUCTURE } from "./app.symbols";
+import { DAPP_MODULE, INFRASTRUCTURE, LAYOUT_MODULE } from "./app.symbols";
 import { DappPosition } from "./modules/dapp/domain/value-objects/dapp-position.value-object";
 import { StoragePort } from "@core/infrastructure/storage";
+import { LayoutController } from "./modules/layout/application/controllers/layout.controller";
 
 async function bootstrap(): Promise<void> {
   const logger = new Logger();
@@ -14,6 +15,10 @@ async function bootstrap(): Promise<void> {
       INFRASTRUCTURE.IN_MEMORY_STORAGE_ADAPTER
     );
     const dappController = app.get<DappController>(DAPP_MODULE.DAPP_CONTROLLER);
+    const layoutController = app.get<LayoutController>(
+      LAYOUT_MODULE.LAYOUT_CONTROLLER
+    );
+    layoutController.calculateLayout();
     dappController.createDapp({
       id: 1,
       name: "Dapp 1",
@@ -29,6 +34,8 @@ async function bootstrap(): Promise<void> {
         name: "Lê Khải Hoàn",
       },
     });
+    logger.debug("layoutController", layoutController.calculateLayout());
+
     logger.debug("inMemoryStorageAdapter", inMemoryStorageAdapter.getAll());
   } catch (error) {
     logger.error("Application fail", error);
