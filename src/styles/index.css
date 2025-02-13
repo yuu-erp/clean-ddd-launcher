@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+  html,
+  body {
+    background: url("https://i.pinimg.com/736x/6b/0c/cc/6b0ccc3f118de8b9058d8eb1c6084f3b.jpg")
+      no-repeat center center fixed;
+    @apply w-screen h-screen select-none bg-no-repeat bg-cover overflow-hidden;
+  }
+}
+
+@layer components {
+  #app {
+    @apply w-full h-full relative overflow-hidden;
+    & .layout-absolute {
+      @apply absolute left-0 right-0 z-10 flex items-center justify-center;
+      &#status-bar {
+        @apply top-0 border-b-[1px];
+        & #status-bar_container {
+          @apply w-full h-full flex items-center justify-between;
+        }
+      }
+      &#pagination {
+        @apply border-b-[1px] border-t-[1px];
+      }
+      &#dock {
+        @apply bottom-0 border-b-[1px];
+      }
+    }
+  }
+}

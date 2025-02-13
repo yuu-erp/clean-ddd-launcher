@@ -3,6 +3,7 @@ import { LAYOUT_MODULE } from "src/app.symbols";
 import { CalculateLayoutInPort } from "../../domain/use-cases/port/calculate-layout.in-port";
 import { GetLayoutInPort } from "../../domain/use-cases/port/get-layout.in-port";
 import { CalculateLayoutService } from "../services/calculate-layout.service";
+import { LayoutProps } from "../../domain/entities/layout.type";
 
 @injectable()
 export class LayoutController {
@@ -18,7 +19,7 @@ export class LayoutController {
     return this.calculateLayoutUseCase.execute(layout);
   }
 
-  getLayout() {
-    return this.getLayoutUseCase.execute();
+  getLayout(): LayoutProps {
+    return this.getLayoutUseCase.execute() as LayoutProps;
   }
 }

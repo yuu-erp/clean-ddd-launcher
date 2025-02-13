@@ -13,7 +13,6 @@ export class LayoutModule extends BaseModule {
   protected onInit(bind: interfaces.Bind): void {
     this.layoutRepositoryImpl(bind);
     this.layoutController(bind);
-
     this.calculateLayoutUseCase(bind);
     this.getLayoutUseCase(bind);
   }

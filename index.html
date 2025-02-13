@@ -1,13 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/src/styles/index.css" rel="stylesheet" />
     <title>Vite + TS</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div id="status-bar" class="layout-absolute">
+        <div id="status-bar_container">
+          <button>Add</button>
+          <button>Done</button>
+        </div>
+      </div>
+      <div id="main" class="flex items-center justify-center w-full h-full">
+        main
+      </div>
+      <div id="pagination" class="layout-absolute">Pagination</div>
+      <div id="dock" class="layout-absolute">
+        <div id="dock_container"></div>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

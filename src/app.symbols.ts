@@ -13,6 +13,7 @@ export const LAYOUT_MODULE = {
   LAYOUT_CONTROLLER: Symbol.for("LayoutController"),
   CALCULATE_LAYOUT_USECASE: Symbol.for("CalculateLayoutUseCase"),
   GET_LAYOUT_USECASE: Symbol.for("GetLayoutUseCase"),
+  LAYOUT_VIEW: Symbol.for("LayoutView"),
 };
 export const FETCH_DATA_MODULE = {
   FETCH_DATA_SERVICE: Symbol.for("FetchDataService"),
