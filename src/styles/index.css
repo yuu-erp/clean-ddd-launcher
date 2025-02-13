@@ -20,7 +20,7 @@
 
 @layer components {
   #app {
-    @apply w-full h-full relative overflow-hidden;
+    @apply w-full h-full relative;
     & .layout-absolute {
       @apply absolute left-0 right-0 z-10 flex items-center justify-center;
       &#status-bar {
@@ -36,5 +36,8 @@
         @apply bottom-0 border-b-[1px];
       }
     }
+    /* & #main {
+      @apply overflow-auto;
+    } */
   }
 }

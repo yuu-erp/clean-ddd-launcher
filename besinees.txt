@@ -6,3 +6,4 @@ ví dụ chuyển trang, di chuyển ứng dụng, .....
 
 - lắng nghe event di chuyển trang để thực hiện chuyển trang trên UI
 - lăng nghe event di chuyển ứng dụng để thự hiện logic di chuyển ứng dụng
+

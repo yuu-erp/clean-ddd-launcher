@@ -1,18 +1,17 @@
-import type { Emitter } from "mitt";
-import { DomainEvent } from "../events/domain-event.base";
-import type { EmitDomainEvents } from "../events/domain-event.types";
+import { DomainEvent } from "../events";
 import { Entity } from "./entity.base";
 import { LoggerPort } from "@core/infrastructure/logger";
+import { Emitter } from "@core/infrastructure/emitter";
 
 export abstract class AggregateRoot<Props> extends Entity<Props> {
-  #domainEvents: DomainEvent[] = [];
+  private domainEvents: DomainEvent[] = [];
 
-  get domainEvents() {
-    return this.#domainEvents;
+  get domainEventsList(): DomainEvent[] {
+    return this.domainEvents;
   }
 
-  set domainEvents(domainEvents: DomainEvent[]) {
-    this.#domainEvents = domainEvents;
+  set domainEventsList(domainEvents: DomainEvent[]) {
+    this.domainEvents = domainEvents;
   }
 
   protected addEvent(domainEvent: DomainEvent | DomainEvent[]): void {
@@ -27,12 +26,11 @@ export abstract class AggregateRoot<Props> extends Entity<Props> {
     this.domainEvents = [];
   }
 
-  async publishEvents(logger: LoggerPort, emitter: Emitter<EmitDomainEvents>) {
+  async publishEvents(logger: LoggerPort, emitter: Emitter): Promise<void> {
     const promiseEvents = this.domainEvents.map((event) => {
       logger.debug(
         `[RequestID] "${event.constructor.name}" event published for aggregate ${this.constructor.name} : ${this.id}`
       );
-      // @ts-expect-error Ignore typecheck
       return emitter.emitAsync(event.constructor.name, event);
     });
     for await (const event of promiseEvents) {

@@ -1,12 +1,7 @@
-import { Emitter } from "mitt";
 import { DraggableCore } from "../draggable-core";
-import { EmitDomainEvents } from "@core/domain/events";
-
+import { Emitter } from "@core/infrastructure/emitter";
 export class DraggableService extends DraggableCore {
-  constructor(
-    rootElement: HTMLElement,
-    private readonly emitter: Emitter<EmitDomainEvents>
-  ) {
+  constructor(rootElement: HTMLElement, private readonly emitter: Emitter) {
     super(rootElement);
   }
 

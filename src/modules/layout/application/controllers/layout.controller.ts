@@ -14,9 +14,9 @@ export class LayoutController {
     private readonly getLayoutUseCase: GetLayoutInPort
   ) {}
 
-  calculateLayout() {
+  calculateLayout(): LayoutProps {
     const layout = CalculateLayoutService.calculateLayout();
-    return this.calculateLayoutUseCase.execute(layout);
+    return this.calculateLayoutUseCase.execute(layout) as LayoutProps;
   }
 
   getLayout(): LayoutProps {

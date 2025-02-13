@@ -1,5 +1,6 @@
 export const INFRASTRUCTURE = {
   IN_MEMORY_STORAGE_ADAPTER: Symbol.for("InMemoryStorageAdapter"),
+  SYSTEM_CORE: Symbol.for("SystemCore"),
 };
 export const DAPP_MODULE = {
   DAPP_MAPPER: Symbol.for("DappMapper"),
