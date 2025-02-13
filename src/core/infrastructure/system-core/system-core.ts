@@ -1,11 +1,9 @@
 import { generateMessageId } from "@core/helpers";
-import { injectable } from "inversify";
 import { Emitter } from "../emitter";
 import { receiveData } from "./receiveData";
 import { SystemCorePort } from "./system-core.port";
 import { DataResponse, Payload } from "./system-core.type";
 
-@injectable()
 export class SystemCore extends Emitter implements SystemCorePort {
   #isReady: boolean;
   #hasNotch = false;

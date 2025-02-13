@@ -1,7 +1,5 @@
-import { injectable } from "inversify";
 import { StoragePort } from "./storage.port";
 
-@injectable()
 export class InMemoryStorageAdapter<T extends Record<string, any> = any>
   implements StoragePort<T>
 {
