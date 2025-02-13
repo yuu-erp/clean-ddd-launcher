@@ -12,6 +12,7 @@
     "@techmely/types": "^1.9.0",
     "@techmely/utils": "^3.3.0",
     "@types/node": "^22.13.1",
+    "sass": "^1.84.0",
     "ts-essentials": "^10.0.4",
     "typescript": "~5.7.2",
     "vite": "^6.1.0"
