@@ -7,7 +7,6 @@ import { DraggableService } from "./modules/draggable/application/draggable.serv
 import { LayoutController } from "./modules/layout/application/controllers/layout.controller";
 
 import { mittAsync } from "@core/domain/events";
-import { LayoutView } from "./views/layout.view";
 
 async function bootstrap(): Promise<void> {
   const logger = new Logger();
@@ -25,8 +24,6 @@ async function bootstrap(): Promise<void> {
       LAYOUT_MODULE.LAYOUT_CONTROLLER
     );
     layoutController.calculateLayout();
-    const layout = layoutController.getLayout();
-    LayoutView.init(layout);
 
     const draggableService = new DraggableService(rootElement, mittAsync());
     new DraggableController(draggableService);

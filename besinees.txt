@@ -1,0 +1,8 @@
+- Tính toán layout 
+- gọi native lấy danh sách ứng dụng 
+- render layout theo các thông số đã tính toán
+- khởi tạo lớp draggable theo dõi hành động người dùng ( touch cho desktop và move cho mobile ) và gửi đi các event bus theo từng hành động
+ví dụ chuyển trang, di chuyển ứng dụng, .....
+
+- lắng nghe event di chuyển trang để thực hiện chuyển trang trên UI
+- lăng nghe event di chuyển ứng dụng để thự hiện logic di chuyển ứng dụng
