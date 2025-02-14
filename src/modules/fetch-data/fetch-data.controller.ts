@@ -1,3 +1,4 @@
+import { DATA } from "src/data";
 import { DataDappResponseDTO } from "./dtos/data-dapp-response.dto";
 import { ProfileResponseDTO } from "./dtos/profile-response.dto";
 import { FetchDataService } from "./fetch-data.service";
@@ -9,8 +10,9 @@ export class FetchDataController {
     return this.fetchDataService.getCurrentProfile();
   }
 
-  async handleGetDataDApp(): Promise<DataDappResponseDTO[][]> {
-    return this.fetchDataService.getDataDApp();
+  async handleGetDataDApp(): Promise<DataDappResponseDTO> {
+    // return this.fetchDataService.getDataDApp();
+    return { data: DATA };
   }
 
   async handleGetFavoriteApps(): Promise<DataDappResponseDTO[]> {

@@ -5,11 +5,11 @@ export interface RepositoryPort<Entity> {
   findAll(): Entity[];
   findByKey(key: StringEnum<keyof Entity>): Entity | null;
 
-  insert(entity: Entity): Entity | Promise<Entity>;
-  insertMany(entities: Entity[]): Entity[] | Promise<Entity[]>;
+  insert(entity: Entity): Entity;
+  insertMany(entities: Entity[]): Entity[];
 
-  update(entity: Entity): void | Entity;
-  updateMany(entities: Entity[]): void | Entity[];
+  update(entity: Entity): Entity;
+  updateMany(entities: Entity[]): Entity[];
 
   delete(entity: Entity): boolean;
   deleteById(id: string): boolean;

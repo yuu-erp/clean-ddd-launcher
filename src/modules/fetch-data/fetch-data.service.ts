@@ -33,15 +33,13 @@ export class FetchDataService {
       );
     }
   }
-
   async getCurrentProfile(): Promise<ProfileResponseDTO> {
     return this.fetchData<unknown, ProfileResponseDTO>({
       command: "getCurrentProfile",
     });
   }
-
-  async getDataDApp(): Promise<DataDappResponseDTO[][]> {
-    return this.fetchData<unknown, DataDappResponseDTO[][]>({
+  async getDataDApp(): Promise<DataDappResponseDTO> {
+    return this.fetchData<unknown, DataDappResponseDTO>({
       command: "getDataDApp",
     });
   }
