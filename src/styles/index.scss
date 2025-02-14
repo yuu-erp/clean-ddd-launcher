@@ -15,7 +15,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: url("https://i.pinimg.com/736x/c0/eb/c7/c0ebc71469d3e7f4583f175b8c59894b.jpg");
+  background: url("https://i.pinimg.com/736x/84/b3/fe/84b3fe0fec5328b654b0d01c2e5ea114.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -59,13 +59,12 @@ body {
       position: relative;
       width: 100%;
       height: 100%;
-      overflow: auto;
       & .main_container {
         height: 100%;
         width: auto;
         display: flex;
         & .app-item {
-          // position: absolute;
+          position: absolute;
           width: 93px;
           height: 102px;
           & .app-item_container {
@@ -85,7 +84,7 @@ body {
             & p {
               //'text-white font-medium text-xs line-clamp-1 px-1 w-full flex items-center justify-center
               color: black;
-              font-weight: 700;
+              font-weight: 500;
               font-size: 14px;
               overflow: hidden;
               display: -webkit-box;

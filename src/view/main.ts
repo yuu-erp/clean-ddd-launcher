@@ -1,16 +1,10 @@
-import { LayoutController } from "@core/application/controllers";
-import { DappController } from "@core/application/controllers/dapp.controller";
 import { styleElement } from "@core/helpers";
 import { StoragePort } from "@core/infrastructure/storage";
 
 export class Main {
   private element: HTMLElement;
   private containerElement: HTMLElement;
-  constructor(
-    private readonly layoutController: LayoutController,
-    private readonly dappController: DappController,
-    private readonly storage: StoragePort
-  ) {
+  constructor(private readonly storage: StoragePort) {
     this.element = document.getElementById("main") as HTMLElement;
     this.containerElement = document.querySelector(
       ".main_container"

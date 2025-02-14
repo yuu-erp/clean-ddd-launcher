@@ -10,7 +10,7 @@ import {
   SIZE_ICON,
 } from "@core/constants/layout.constant";
 import { Device } from "@core/domain/enums";
-import { LayoutProps } from "@core/domain/types";
+import { IPosition, LayoutProps } from "@core/domain/types";
 
 export class CalculateLayoutService {
   static calculateLayout(): LayoutProps {
@@ -42,6 +42,15 @@ export class CalculateLayoutService {
       columnDockNumber
     );
 
+    const grids = this.createGrid({
+      columnNumber,
+      rowsNumber,
+      itemWidth,
+      outerPadding,
+      itemHeight,
+      heightStatusBar,
+    });
+
     return {
       device: this.device(),
       screenCheckPoint,
@@ -57,6 +66,7 @@ export class CalculateLayoutService {
       itemWidth,
       itemHeight,
       outerPadding,
+      grids,
     };
   }
 
@@ -105,5 +115,33 @@ export class CalculateLayoutService {
       itemWidth,
       outerPadding: totalPadding / 2,
     };
+  }
+
+  private static createGrid({
+    columnNumber,
+    rowsNumber,
+    itemWidth,
+    outerPadding,
+    itemHeight,
+    heightStatusBar,
+  }: {
+    columnNumber: number;
+    rowsNumber: number;
+    itemWidth: number;
+    outerPadding: number;
+    itemHeight: number;
+    heightStatusBar: number;
+  }) {
+    const result: IPosition[] = [];
+    for (let y = 0; y < rowsNumber; y++) {
+      for (let x = 0; x < columnNumber; x++) {
+        const idx = y * columnNumber + x;
+        result[idx] = {
+          left: x * itemWidth + outerPadding,
+          top: y * itemHeight + heightStatusBar,
+        };
+      }
+    }
+    return result;
   }
 }

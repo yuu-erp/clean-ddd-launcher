@@ -15,4 +15,10 @@ export interface LayoutProps {
   itemWidth: number;
   itemHeight: number;
   outerPadding: number;
+  grids: IPosition[];
+}
+
+export interface IPosition {
+  left: number;
+  top: number;
 }

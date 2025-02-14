@@ -4,6 +4,7 @@ import { Main } from "./view/main";
 import { Pagination } from "./view/pagination";
 import { StatusBar } from "./view/status-bar";
 import { dependency } from "./dependency";
+import { ListDapp } from "./view/features/list-dapp";
 
 import "./styles/index.scss";
 
@@ -19,26 +20,22 @@ async function bootstrap(): Promise<void> {
     } = dependency();
 
     logger.log("Starting compilation in watch mode...");
-
     layoutController.calculate();
-
     const dataDapp = await fetchDataController.handleGetDataDApp();
     inMemoryStorageAdapter.set("totalPage", dataDapp.data.length);
     dappController.insertDapps(dataDapp.data);
-    // UI
+    const dapps = dappController.getDapps();
+
     const statusBar = new StatusBar(layoutController, emitter);
-    const main = new Main(
-      layoutController,
-      dappController,
-      inMemoryStorageAdapter
-    );
+    const main = new Main(inMemoryStorageAdapter);
     const dock = new Dock(layoutController);
     const pagination = new Pagination(layoutController);
-
+    const listDapp = new ListDapp(layoutController);
     statusBar.init();
     main.init();
     dock.init();
     pagination.init();
+    listDapp.render(dapps);
 
     logger.debug("inMemoryStorageAdapter: ", inMemoryStorageAdapter.getAll());
   } catch (error) {
