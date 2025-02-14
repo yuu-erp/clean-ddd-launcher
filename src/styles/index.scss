@@ -46,12 +46,15 @@ body {
         button {
           border: none;
           outline: none;
-          width: 60px;
-          height: 35px;
+          border-radius: 12px;
           display: flex;
+          height: 1.75rem;
+          width: 64px;
           align-items: center;
           justify-content: center;
-          border-radius: 12px;
+          border-radius: 40px;
+          font-size: 1rem;
+          font-weight: 500;
         }
       }
     }
@@ -99,5 +102,8 @@ body {
     #dock {
       bottom: 0;
     }
+  }
+  &.edit .status-bar_container {
+    display: flex !important;
   }
 }

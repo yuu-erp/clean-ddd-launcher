@@ -1,8 +1,7 @@
-import { DATA } from "src/data";
 import { DataDappResponseDTO } from "./dtos/data-dapp-response.dto";
 import { ProfileResponseDTO } from "./dtos/profile-response.dto";
 import { FetchDataService } from "./fetch-data.service";
-
+import { DATA } from "../../../data";
 export class FetchDataController {
   constructor(private readonly fetchDataService: FetchDataService) {}
 

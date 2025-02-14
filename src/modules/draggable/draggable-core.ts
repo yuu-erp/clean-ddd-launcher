@@ -24,7 +24,6 @@ export abstract class DraggableCore {
 
   constructor(private element: HTMLElement) {
     this.isTouch = "ontouchstart" in window;
-
     // Định nghĩa lại handler với đúng kiểu EventListener
     this.onStartHandler = (event) =>
       this.handleStart(event as TouchEvent | MouseEvent);
@@ -81,20 +80,29 @@ export abstract class DraggableCore {
   }
 
   protected getClientCoordinates(event: TouchEvent | MouseEvent): {
-    x: number;
-    y: number;
+    clientX: number;
+    clientY: number;
+    target: HTMLElement;
   } {
+    let clientX = 0,
+      clientY = 0,
+      target: HTMLElement | null = null;
+
     if (
       this.isTouch &&
       event instanceof TouchEvent &&
       event.touches.length > 0
     ) {
-      return { x: event.touches[0].clientX, y: event.touches[0].clientY };
+      clientX = event.touches[0].clientX;
+      clientY = event.touches[0].clientY;
+      target = event.touches[0].target as HTMLElement;
+    } else if (event instanceof MouseEvent) {
+      clientX = event.clientX;
+      clientY = event.clientY;
+      target = event.target as HTMLElement;
     }
-    if (event instanceof MouseEvent) {
-      return { x: event.clientX, y: event.clientY };
-    }
-    return { x: 0, y: 0 };
+
+    return { clientX, clientY, target: target || this.element };
   }
 
   destroy() {

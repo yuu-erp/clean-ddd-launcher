@@ -1,22 +1,19 @@
 import { Logger } from "@core/infrastructure/logger";
-import { Dock } from "./view/dock";
-import { Main } from "./view/main";
-import { Pagination } from "./view/pagination";
-import { StatusBar } from "./view/status-bar";
 import { dependency } from "./dependency";
-import { ListDapp } from "./view/features/list-dapp";
 
 import "./styles/index.scss";
+import { LayoutManager } from "./views/layout-manager";
+import { Draggable } from "./modules/draggable/draggable";
 
 async function bootstrap(): Promise<void> {
   const logger = new Logger();
   try {
     const {
-      emitter,
       layoutController,
       dappController,
       fetchDataController,
       inMemoryStorageAdapter,
+      emitter,
     } = dependency();
 
     logger.log("Starting compilation in watch mode...");
@@ -24,18 +21,10 @@ async function bootstrap(): Promise<void> {
     const dataDapp = await fetchDataController.handleGetDataDApp();
     inMemoryStorageAdapter.set("totalPage", dataDapp.data.length);
     dappController.insertDapps(dataDapp.data);
-    const dapps = dappController.getDapps();
 
-    const statusBar = new StatusBar(layoutController, emitter);
-    const main = new Main(inMemoryStorageAdapter);
-    const dock = new Dock(layoutController);
-    const pagination = new Pagination(layoutController);
-    const listDapp = new ListDapp(layoutController);
-    statusBar.init();
-    main.init();
-    dock.init();
-    pagination.init();
-    listDapp.render(dapps);
+    new LayoutManager(layoutController, emitter);
+    const main = document.getElementById("main") as HTMLElement;
+    new Draggable(main, emitter);
 
     logger.debug("inMemoryStorageAdapter: ", inMemoryStorageAdapter.getAll());
   } catch (error) {
